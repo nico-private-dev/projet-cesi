@@ -3,14 +3,9 @@ require_once "./view/_parts/header.php";
 
 require_once "./Database.php";
 
-
-
-
-
-
 require_once "./controller/shortController.php";
 
-$url_full = "https://youtu.be/KUOwbcdZozQ";
+$url_full = getUrls(['url_full']);
 $shortUrl = shortenUrl($url_full);
 // $shortUrl = $redirection;
 // $redirection = header("Location:".$url_full);
@@ -20,7 +15,7 @@ echo '<a href="http://qrfim.xyz/?page=url">'.'http://qrfim.xyz/'.$shortUrl.'</a>
  
 
 
-require_once "./view/_parts/footer.php";
+
 
 $page = "home";
 if (isset($_GET['page'])) {
@@ -36,6 +31,9 @@ switch ($page) {
         require_once "./view/BO/bo_qr.php";
         break;
     case 'url':
+        
+        var_dump($url_full,$shortUrl);
+        $url_full = getUrls(['url_full']);
         relationUrl($shortUrl,$url_full);
         break;
 
@@ -45,3 +43,4 @@ switch ($page) {
 
         break;
 }
+require_once "./view/_parts/footer.php";

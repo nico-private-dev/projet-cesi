@@ -20,13 +20,9 @@ function shortenUrl($url) {
 function getUrls(){
 
     $req = "SELECT 
-                *
+                url_short,url_full
             FROM 
-                urls
-            INNER JOIN
-                users
-                ON
-                users.id = urls.user_id;";
+                urls;";
     $res = databaseRead($req);
 
     return $res;
@@ -52,6 +48,7 @@ function addUrls($user_id,$url_full,$url_short,$limit_date){
 
 
 }
+
 
 function relationUrl($url_short,$url_full){
 
