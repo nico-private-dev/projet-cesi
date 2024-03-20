@@ -1,4 +1,11 @@
 <?php 
+require_once "./view/_parts/header.php";
+
+require_once "./Database.php";
+
+
+
+
 
 
 require_once "./controller/shortController.php";
@@ -7,4 +14,5 @@ $longUrl = "https://www.google.com/search?sca_esv=58652087346d5a22&rlz=1C1GCEA_e
 $shortUrl = shortenUrl($longUrl);
 
 echo $shortUrl;
+require_once "./view/_parts/footer.php";
 
