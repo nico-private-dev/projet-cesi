@@ -5,7 +5,8 @@ function shortenUrl($url) {
     $shortId = uniqid();
 
 
-    $shortUrl = "https://qrfim.xyz/" . $shortId;
+    // $shortUrl = "https://qrfim.xyz/" . $shortId;
+    $shortUrl = $shortId;
     
     if (strlen($shortUrl) > 50) {
        
@@ -19,13 +20,13 @@ function shortenUrl($url) {
 function getUrls(){
 
     $req = "SELECT 
-                content, date_created, alikes, nickname 
+                *
             FROM 
-                blog
+                urls
             INNER JOIN
-                user
+                users
                 ON
-                user.id = blog.user_id;";
+                users.id = urls.user_id;";
     $res = databaseRead($req);
 
     return $res;
@@ -48,6 +49,23 @@ function addUrls($user_id,$url_full,$url_short,$limit_date){
     ];
 
     databaseWrite($req, $data);
+
+
+}
+
+function relationUrl($url_short,$url_full){
+
+    $relation = [
+        
+        $url_short => $url_full
+
+    ];
+
+    var_dump($relation);
+    header("Location:". $url_full);
+
+    return $relation;
+
 
 
 }

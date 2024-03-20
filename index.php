@@ -10,10 +10,16 @@ require_once "./Database.php";
 
 require_once "./controller/shortController.php";
 
-$longUrl = "https://github.com/FimCCIFormation/short_url/tree/main";
-$shortUrl = shortenUrl($longUrl);
+$url_full = "https://youtu.be/KUOwbcdZozQ";
+$shortUrl = shortenUrl($url_full);
+// $shortUrl = $redirection;
+// $redirection = header("Location:".$url_full);
+echo '<a href="http://qrfim.xyz/?page=url">'.'http://qrfim.xyz/'.$shortUrl.'</a>';
 
-echo $shortUrl;
+
+ 
+
+
 require_once "./view/_parts/footer.php";
 
 $page = "home";
@@ -29,9 +35,8 @@ switch ($page) {
     case 'admin':
         require_once "./view/BO/bo_qr.php";
         break;
-    case '':
-        require_once "";
-
+    case 'url':
+        relationUrl($shortUrl,$url_full);
         break;
 
     default:
