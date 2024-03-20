@@ -27,11 +27,10 @@ switch ($page) {
 
         break;
     case 'admin':
-
-
+        require_once "./view/BO/bo_qr.php";
         break;
-    case 'action-add-post':
-        require_once "./view/actions/add_post.php";
+    case '':
+        require_once "";
 
         break;
 
