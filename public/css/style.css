@@ -1,0 +1,13 @@
+/* Header */
+.container-btn-account {
+    gap: 20px;
+}
+.btn-account {
+    border: none;
+    border-radius: 15px;
+    padding: 12px 24px ;
+}
+
+.btn-signin {
+    background-color: #FA275A;
+}
