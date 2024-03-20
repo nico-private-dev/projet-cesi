@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
 <body>
@@ -22,9 +23,9 @@
                         </a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <button>Me connecter</button>
-                    <button>Créer un compte</button>
+                <div class="d-flex container-btn-account">
+                    <button class="btn-account btn-login">Me connecter</button>
+                    <button class="btn-account btn-signin">Créer un compte</button>
                 </div>
             </div>
         </div>
