@@ -1,18 +1,18 @@
-<?php 
+<?php
 require_once "./view/_parts/header.php";
 
 require_once "./Database.php";
 
 require_once "./controller/shortController.php";
 
-$url_full = getUrls(['url_full']);
-$shortUrl = shortenUrl($url_full);
+$Url_long = getUrls(['url_full']);
+$shortUrl = shortenUrl($Url_long);
 // $shortUrl = $redirection;
 // $redirection = header("Location:".$url_full);
-echo '<a href="http://qrfim.xyz/?page=url">'.'http://qrfim.xyz/'.$shortUrl.'</a>';
+// echo '<a href="http://qrfim.xyz/?page=url">' . 'http://qrfim.xyz/' . $shortUrl . '</a>';
 
 
- 
+
 
 
 
@@ -31,11 +31,14 @@ switch ($page) {
     case 'admin':
         require_once "./view/BO/bo_qr.php";
         break;
+
+    case 'create_account':
+            require_once "./view/_parts/create_account.php";
+            break;
     case 'url':
-        
-        var_dump($url_full,$shortUrl);
-        $url_full = getUrls(['url_full']);
-        relationUrl($shortUrl,$url_full);
+
+        $url = getUrlsByID('https://qrfim.xyz/65faf360af0e7');
+        require_once "./view/url.php";
         break;
 
     default:

@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Fim - Votre générateur de QR Code</title>
+    <title>Document</title>
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
-    <link rel="shortcut icon" href="/public/img/logo-qr-fim.png" type="image/x-icon">
 </head>
 
 <body>
@@ -25,8 +24,8 @@
                     </li>
                 </ul>
                 <div class="d-flex container-btn-account">
-                    <button class="btn-account btn-login"><a href=""></a>Me connecter</button>
-                    <button class="btn-account btn-signin">Créer un compte</button>
+                    <button class="btn-account btn-login">Me connecter</button>
+                    <a href="http://qrfim.xyz/?page=create_account " class="btn-account btn-signin">Créer un compte</a>
                 </div>
             </div>
         </div>

@@ -30,6 +30,24 @@ function getUrls(){
 
 }
 
+function getUrlsByID($id){
+
+    $req = "SELECT 
+                url_short,url_full
+            FROM 
+                urls;
+            WHERE
+                url_short=:url_short";
+    $data = [
+        'url_short' => $id
+    ];
+    $res = databaseRead($req, $data, true);
+
+    return $res;
+
+
+}
+
 function addUrls($user_id,$url_full,$url_short,$limit_date){
 
     $date = new DateTime();
@@ -52,13 +70,9 @@ function addUrls($user_id,$url_full,$url_short,$limit_date){
 
 function relationUrl($url_short,$url_full){
 
-    $relation = [
-        
-        $url_short => $url_full
-
-    ];
-
-    var_dump($relation);
+    $relation = [];
+    $relation[$url_short] = $url_full;
+    // var_dump($relation);
     header("Location:". $url_full);
 
     return $relation;
@@ -66,3 +80,4 @@ function relationUrl($url_short,$url_full){
 
 
 }
+
