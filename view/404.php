@@ -6,6 +6,6 @@
       <span class="fade-in" id="digit3">4</span>
     </h1>
     <h3 class="fadeIn">PAGE NOT FOUND</h3>
-    <button type="button" name="button">Return To Home</button>
+    <button type="button" name="button"> <a href="http://qrfim.xyz/?page=home">Return To Home</a></button>
   </div>
 </div>
