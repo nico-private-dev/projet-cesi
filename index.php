@@ -25,6 +25,7 @@ if (isset($_GET['page'])) {
 switch ($page) {
     case 'home':
         require_once "./view/home.php";
+        require_once "./view/_parts/add_form.php";
 
         break;
     case 'admin':
