@@ -1,20 +1,83 @@
 <?php 
 
 function shortenUrl($url) {
-    // Génère un identifiant unique et court pour l'URL
+
     $shortId = uniqid();
 
-    // Ici, dans une application réelle, vous stockeriez $shortId et $url dans une base de données
-    // pour pouvoir retrouver l'URL à partir de $shortId
+
+    // $shortUrl = "https://qrfim.xyz/" . $shortId;
+    $shortUrl = $shortId;
     
-    // Construit une URL courte en utilisant $shortId (exemplatif)
-    $shortUrl = "https://qrfim.xyz/" . $shortId;
-    
-    // Assurez-vous que la longueur ne dépasse pas 50 caractères
     if (strlen($shortUrl) > 50) {
-        // Traitez l'erreur ou ajustez $shortId pour réduire la longueur
+       
         return "Erreur: L'URL raccourcie dépasse 50 caractères.";
     }
     
     return $shortUrl;
 }
+
+
+function getUrls(){
+
+    $req = "SELECT 
+                url_short,url_full
+            FROM 
+                urls;";
+    $res = databaseRead($req);
+
+    return $res;
+
+
+}
+
+function getUrlsByID($id){
+
+    $req = "SELECT 
+                url_short,url_full
+            FROM 
+                urls;
+            WHERE
+                url_short=:url_short";
+    $data = [
+        'url_short' => $id
+    ];
+    $res = databaseRead($req, $data, true);
+
+    return $res;
+
+
+}
+
+function addUrls($user_id,$url_full,$url_short,$limit_date){
+
+    $date = new DateTime();
+
+    $req = "INSERT INTO urls (user_id, url_full, url_short,limit_date, created_at) VALUES (:user_id, :url_full, :url_short, :limit_date, '". $date->format("Y-m-d h:i:s")."');";
+
+    $data = [
+        'user_id' => $user_id,
+        'url_full' => $url_full,
+        'url_short' => $url_short,
+        'limit_date' => $limit_date,
+
+    ];
+
+    databaseWrite($req, $data);
+
+
+}
+
+
+function relationUrl($url_short,$url_full){
+
+    $relation = [];
+    $relation[$url_short] = $url_full;
+    // var_dump($relation);
+    header("Location:". $url_full);
+
+    return $relation;
+
+
+
+}
+

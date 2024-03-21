@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 20 fév. 2024 à 13:50
+-- Généré le : mer. 20 mars 2024 à 14:12
 -- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Version de PHP : 8.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `urls` (
   `user_id` int NOT NULL,
   `url_full` varchar(250) NOT NULL,
   `url_short` varchar(50) NOT NULL,
-  `limit_date` datetime NOT NULL,
+  `limit_date` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
