@@ -36,8 +36,8 @@ switch ($page) {
         require_once "./view/_parts/create_account.php";
         break;
     case 'url':
-
-        $url_short = getUrls(['url_short']);
+        
+        $url_short = $_GET['code'];
         $url_full = getUrls(['url_full']);
         require_once "./view/url.php";
         break;

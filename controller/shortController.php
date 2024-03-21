@@ -5,8 +5,8 @@ function shortenUrl($url) {
     $shortId = uniqid();
 
 
-    $shortUrl = "https://qrfim.xyz/" . $shortId;    
-    // $shortUrl = $shortId;
+    // $shortUrl = "https://qrfim.xyz/" . $shortId;    
+    $shortUrl = $shortId;
     
     if (strlen($shortUrl) > 50) {
        
