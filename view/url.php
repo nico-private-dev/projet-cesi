@@ -1,3 +1,5 @@
+
+
 <?php
 
-header("Location:".$url_full);
+relationUrl($url_short,$url_full);

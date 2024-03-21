@@ -37,7 +37,8 @@ switch ($page) {
         break;
     case 'url':
 
-        $url = getUrlsByID('https://qrfim.xyz/65faf360af0e7');
+        $url_short = getUrls(['url_short']);
+        $url_full = getUrls(['url_full']);
         require_once "./view/url.php";
         break;
 

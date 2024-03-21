@@ -4,7 +4,7 @@
         <?php
 
         foreach ($users as $key => $user) {
-            echo  "<option value=". $user['id'] . ">" . $user['user_id'] . "</option>";
+            echo  "<option value='1'>" . $user['user_id'] . "</option>";
         }
 
         ?>
