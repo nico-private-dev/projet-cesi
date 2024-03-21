@@ -7,6 +7,7 @@
     <title>QR Fim - Votre générateur de QR Code</title>
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/img/logo-qr-fim.png" type="image/x-icon">
 </head>
 
 <body>
