@@ -20,7 +20,7 @@ function shortenUrl($url) {
 function getUrls(){
 
     $req = "SELECT 
-                url_short,url_full
+                user_id, url_short,url_full
             FROM 
                 urls;";
     $res = databaseRead($req);
@@ -76,8 +76,6 @@ function relationUrl($url_short,$url_full){
     header("Location:". $url_full);
 
     return $relation;
-
-
 
 }
 

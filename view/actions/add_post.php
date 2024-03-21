@@ -1,11 +1,16 @@
 <?php
-
-if (isset($_POST['blog_content']) && isset($_POST ['user_id'])) {
+var_dump($_POST);
+if (isset($_POST['url_full']) && isset($_POST ['user_id'])) {
     
-    $blog_content =cleanStr($_POST ['blog_content']);
+    $url_full =cleanStr($_POST ['url_full']);
     $user_id =cleanStr($_POST ['user_id']);
-    addUrl($blog_content,$user_id);
+    $url_short = shortenUrl($url_full);
+    $limit_date = cleanStr($_POST ['limit_date']);
+    if (!$limit_date) {
+        $limit_date = null;
+    }
+    addUrls($user_id, $url_full, $url_short, $limit_date);
 
 }else {
-    //message d'erreur
+    var_dump($url_full);
 }
