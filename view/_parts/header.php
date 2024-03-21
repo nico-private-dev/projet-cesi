@@ -25,7 +25,7 @@
                 </ul>
                 <div class="d-flex container-btn-account">
                     <button class="btn-account btn-login">Me connecter</button>
-                    <button class="btn-account btn-signin">Créer un compte</button>
+                    <a href="http://qrfim.xyz/?page=create_account " class="btn-account btn-signin">Créer un compte</a>
                 </div>
             </div>
         </div>

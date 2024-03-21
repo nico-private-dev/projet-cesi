@@ -1,34 +1,42 @@
 <?php
 
-function databaseConnect() {
+function databaseConnect()
+{
     $server = "localhost";
     $login = "root";
     $password = "";
     $port = "3306";
     $dbname = "webd2_short_url_v1";
 
-    $pdo = new PDO("mysql:host=" . $server.";port=" . $port . ";dbname=" . $dbname, $login, $password);
+    $pdo = new PDO("mysql:host=" . $server . ";port=" . $port . ";dbname=" . $dbname, $login, $password);
 
-    $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $pdo->exec("set names utf8");
 
     return $pdo;
 }
 
-function databaseRead($req) {
+function databaseRead($req, $data = [], $isUnique = false)
+{
     $pdo = databaseConnect();
 
     $stmt = $pdo->prepare($req);
 
-    $stmt->execute();
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->execute($data);
 
+    // $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($isUnique) {
+        $row = $stmt->fetch();
+    } else {
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     databaseConnectionClose($pdo);
     return $row;
 }
 
-function databaseWrite($req, $data) {
+function databaseWrite($req, $data)
+{
 
     $pdo = databaseConnect();
     $stmt = $pdo->prepare($req);
@@ -37,8 +45,8 @@ function databaseWrite($req, $data) {
     databaseConnectionClose($pdo);
 }
 
-function databaseConnectionClose($pdo) {
+function databaseConnectionClose($pdo)
+{
 
     $pdo = null;
-
 }
