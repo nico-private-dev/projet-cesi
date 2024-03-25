@@ -2,16 +2,8 @@
     <div class="row">
         <div class="col-6">
             <form action="?page=action-add-post" method="post" class="">
-                <select class="form-select" name="user_id" id="">
-                    <option value="" disabled>Selectionnez un user</option>
-                    <?php
-
-                    foreach ($users as $key => $user) {
-                        echo "<option value='1'>" . $user['user_id'] . "</option>";
-                    }
-
-                    ?>
-                </select>
+                <input type="hidden" name="user_id" value="<?=$_SESSION['user']['id'];?>" id="" >
+                
 
                 <div class="row d-flex justify-content-center">
                     <label for="limit_date">Veuillez saisir la date d'expiration :</label>
@@ -35,8 +27,7 @@
                 <div class="row">
                     <div class="d-grid gap-2 col-10">
                         <a class="btn btn-lg btn-primary" href="?page=url&code=<?= $url['url_short'] ?>"
-                            id="texteACopier">https://qrfim.xyz/?page=url&code=
-                            <?= $url['url_short'] ?>
+                            id="texteACopier">http://qrfim.xyz/?page=url&code=<?=$url['url_short'] ?>
                         </a>
 
                     </div>
@@ -44,6 +35,6 @@
                 </div>
             <?php } ?> 
         </div>
-        <div class="col-6"></div>
+        <div class="col-6 text-center"><h2>QR CODE</h2></div>
     </div>
 </section>

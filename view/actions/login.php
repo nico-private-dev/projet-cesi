@@ -11,6 +11,7 @@ if(isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
     if($user_id) {
         $user = getUserById($user_id);
         $_SESSION['user']['firstname'] = $user['firstname'];
+        $_SESSION['user']['id'] = $user['id'];
         addFlash("success", "Bon retour par minou (😺) " . $_SESSION['user']['firstname']);
         header("location:?page=home");
     } else {

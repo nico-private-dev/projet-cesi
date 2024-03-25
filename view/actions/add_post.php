@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 if (isset($_POST['url_full']) && isset($_POST ['user_id'])) {
     
     $url_full =cleanStr($_POST ['url_full']);
