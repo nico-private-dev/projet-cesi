@@ -6,7 +6,7 @@ function databaseConnect()
     $login = "root";
     $password = "";
     $port = "3306";
-    $dbname = "webd2_short_url_v1";
+    $dbname = "short_url_qr_fim";
 
     $pdo = new PDO("mysql:host=" . $server . ";port=" . $port . ";dbname=" . $dbname, $login, $password);
 
