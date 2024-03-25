@@ -1,23 +1,25 @@
-<?php 
+<?php
 
-function shortenUrl($url) {
+function shortenUrl($url)
+{
 
     $shortId = uniqid();
 
 
     // $shortUrl = "https://qrfim.xyz/" . $shortId;    
     $shortUrl = $shortId;
-    
+
     if (strlen($shortUrl) > 50) {
-       
+
         return "Erreur: L'URL raccourcie dépasse 50 caractères.";
-    }   
-    
+    }
+
     return $shortUrl;
 }
 
 
-function getUrls(){
+function getUrls()
+{
 
     $req = "SELECT 
                 user_id, url_short,url_full
@@ -30,7 +32,8 @@ function getUrls(){
 
 }
 
-function getUrlsByID($id){
+function getUrlsByID($id)
+{
 
     $req = "SELECT 
                 url_short,url_full
@@ -48,11 +51,30 @@ function getUrlsByID($id){
 
 }
 
-function addUrls($user_id,$url_full,$url_short,$limit_date){
+function getUrlByShortUrl($shortUrl)
+{
+    $req = "SELECT 
+    url_short,url_full
+FROM 
+    urls
+WHERE
+    url_short=:url_short";
+
+$data = [
+    'url_short' => $shortUrl
+];
+$res = databaseRead($req, $data, true);
+
+return $res;
+
+}
+
+function addUrls($user_id, $url_full, $url_short, $limit_date)
+{
 
     $date = new DateTime();
 
-    $req = "INSERT INTO urls (user_id, url_full, url_short,limit_date, created_at) VALUES (:user_id, :url_full, :url_short, :limit_date, '". $date->format("Y-m-d h:i:s")."');";
+    $req = "INSERT INTO urls (user_id, url_full, url_short,limit_date, created_at) VALUES (:user_id, :url_full, :url_short, :limit_date, '" . $date->format("Y-m-d h:i:s") . "');";
 
     $data = [
         'user_id' => $user_id,
@@ -68,14 +90,14 @@ function addUrls($user_id,$url_full,$url_short,$limit_date){
 }
 
 
-function relationUrl($url_short,$url_full){
+// function relationUrl($url_short,$url_full){
 
-    $relation = [];
-    $relation[$url_short] = $url_full;
-    // var_dump($relation);
-    header("Location:". $url_full);
+//     $relation = [];
+//     $relation[$url_short] = $url_full;
+//     // var_dump($relation);
+//     header("Location:". $url_full);
 
-    return $relation;
+//     return $relation;
 
-}
+// }
 

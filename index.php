@@ -37,8 +37,9 @@ switch ($page) {
         break;
     case 'url':
         
-        $url_short = $_GET['code'];
-        $url_full = getUrls(['url_full']);
+        $url = getUrlByShortUrl($_GET['code']);
+        var_dump($url);
+        header('location:'. $url['url_full']);
         require_once "./view/url.php";
         break;
 
