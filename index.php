@@ -5,7 +5,6 @@ require_once "./libs/cleanSTR.php";
 
 
 require_once "./controller/shortController.php";
-require_once "./controller/qrcodeController.php";
 require_once "./controller/UserController.php";
 
 // $Url_long = getUrls(['url_full']);
@@ -32,15 +31,18 @@ switch ($page) {
     case 'admin':
         require_once "./view/BO/bo_qr.php";
         break;
+    case 'qrcode':
+        require_once "./controller/qrcodeController.php";
+        break;
 
     case 'create_account':
         require_once "./view/_parts/create_account.php";
         break;
     case 'url':
-        
+
         $url = getUrlByShortUrl($_GET['code']);
         var_dump($url);
-        header('location:'. $url['url_full']);
+        header('location:' . $url['url_full']);
         require_once "./view/url.php";
         break;
 
