@@ -4,5 +4,4 @@
 
 <?php
 require_once "./view/_parts/add_form.php";
-
-    // echo '<a href="?page=url">'.$short_url.'</a>';
+// require_once "./view/_parts/action_url.php";

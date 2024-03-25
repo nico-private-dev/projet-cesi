@@ -17,3 +17,10 @@
         </div>
     </div>
 </form>
+<?php 
+
+$url = getUrlByShortUrl($_GET['code']);
+// var_dump($url);
+// echo '<a href="?page=url&code='.$url['url_short'].'">TEST</a>';
+?>
+<a href="?page=url&code=<?=$url['url_short']?>">https://qrfim.xyz/?page=url&code=<?=$url['url_short']?></a>

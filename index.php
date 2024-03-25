@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once "./view/_parts/header.php";
 
 require_once "./Database.php";
@@ -14,6 +17,7 @@ require_once "./controller/UserController.php";
 // echo '<a href="http://qrfim.xyz/?page=url">' . 'http://qrfim.xyz/' . $shortUrl . '</a>';
 
 
+
 $page = "home";
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -22,6 +26,7 @@ if (isset($_GET['page'])) {
 switch ($page) {
     case 'home':
         $users = getUsers();
+        $url = getUrlByShortUrl($_GET['code']);
         require_once "./view/home.php";
 
         break;
@@ -36,9 +41,7 @@ switch ($page) {
         require_once "./view/_parts/create_account.php";
         break;
     case 'url':
-        
         $url = getUrlByShortUrl($_GET['code']);
-        var_dump($url);
         header('location:'. $url['url_full']);
         require_once "./view/url.php";
         break;
