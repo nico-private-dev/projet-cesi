@@ -28,5 +28,16 @@
                     <a href="http://qrfim.xyz/?page=create_account " class="btn-account btn-signin text-light stretched-link">Créer un compte</a>
                 </div>
             </div>
+            <?php if (isset($_SESSION['user'])) { ?>
+        <!-- Connecter -->
+        <span><?= $_SESSION['user']['nickname'] ?></span>
+        <a href="?page=action-logout"><button class="btn btn-outline-secondary text-light">Logout</button></a>
+
+      <?php } else { ?>
+
+        <!-- Deconnecter -->
+        <a href="?page=login"><button class="btn btn-outline-secondary text-light">Login</button></a>
+        <a href="?page=register"><button class="btn btn-outline-secondary text-light">Register</button></a>
+      <?php } ?>
         </div>
     </nav>
