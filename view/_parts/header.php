@@ -24,8 +24,17 @@
                     </li>
                 </ul>
                 <div class="d-flex container-btn-account">
-                    <button class="btn-account btn-login">Me connecter</button>
-                    <a href="http://qrfim.xyz/?page=create_account " class="btn-account btn-signin text-light stretched-link">Créer un compte</a>
+                    <?php if (isset($_SESSION['user'])) { ?>
+                        <!-- Connecter -->
+                        <span><?= $_SESSION['user']['firstname'] ?></span>
+                        <a href="?page=action-logout"><button class="btn btn-outline-secondary text-light">Se déconnecter</button></a>
+
+                    <?php } else { ?>
+
+                        <!-- Deconnecter -->
+                        <a href="?page=login"><button class="btn-account btn-login">Se connecter</button></a>
+                        <a href="?page=register"><button class="btn-account btn-signin text-light">Créer un compte</button></a>
+                    <?php } ?>
                 </div>
             </div>
         </div>
