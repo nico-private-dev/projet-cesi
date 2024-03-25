@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit3c77ed7099b3246f8e9fec43d6df0479
 {
     public static $prefixLengthsPsr4 = array (
+        'E' => 
+        array (
+            'Endroid\\QrCode\\' => 15,
+        ),
         'D' => 
         array (
             'DASPRiD\\Enum\\' => 13,
@@ -18,6 +22,10 @@ class ComposerStaticInit3c77ed7099b3246f8e9fec43d6df0479
     );
 
     public static $prefixDirsPsr4 = array (
+        'Endroid\\QrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/endroid/qr-code/src',
+        ),
         'DASPRiD\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/dasprid/enum/src',
