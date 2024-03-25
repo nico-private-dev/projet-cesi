@@ -4,27 +4,24 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3c8f2c10a8655d88b9115205b533c7e2
+class ComposerStaticInitf23edb42c89f02ec3cbd882b0a8ee5fc
 {
     public static $prefixLengthsPsr4 = array (
-        'D' => 
+        'c' => 
         array (
-            'DASPRiD\\Enum\\' => 13,
-        ),
-        'B' => 
-        array (
-            'BaconQrCode\\' => 12,
+            'chillerlan\\Settings\\' => 20,
+            'chillerlan\\QRCode\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'DASPRiD\\Enum\\' => 
+        'chillerlan\\Settings\\' => 
         array (
-            0 => __DIR__ . '/..' . '/dasprid/enum/src',
+            0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
         ),
-        'BaconQrCode\\' => 
+        'chillerlan\\QRCode\\' => 
         array (
-            0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
+            0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
         ),
     );
 
@@ -35,9 +32,9 @@ class ComposerStaticInit3c8f2c10a8655d88b9115205b533c7e2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit3c8f2c10a8655d88b9115205b533c7e2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit3c8f2c10a8655d88b9115205b533c7e2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit3c8f2c10a8655d88b9115205b533c7e2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf23edb42c89f02ec3cbd882b0a8ee5fc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf23edb42c89f02ec3cbd882b0a8ee5fc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf23edb42c89f02ec3cbd882b0a8ee5fc::$classMap;
 
         }, null, ClassLoader::class);
     }
