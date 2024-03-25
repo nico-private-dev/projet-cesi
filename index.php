@@ -27,7 +27,9 @@ if (isset($_GET['page'])) {
 switch ($page) {
     case 'home':
         $users = getUsers();
-        $url = getUrlByShortUrl($_GET['code']);
+        if (isset ($_GET['code'])) {
+            $url = getUrlByShortUrl($_GET['code']);
+        }
         require_once "./view/home.php";
 
         break;

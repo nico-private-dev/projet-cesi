@@ -28,10 +28,8 @@
                 </div>
             </form>
             <?php
-
-            if (isset ($_GET['page']) && $_GET['page'] != 'home') {
+            if (isset ($_GET['code'])) {
                 $url = getUrlByShortUrl($_GET['code']);
-                // $url = getUrlByShortUrl($_GET['code']);
                 ?>
                 <span><strong>Voici votre lien raccourcie :</strong></span> <br>
                 <div class="row">
@@ -44,7 +42,7 @@
                     </div>
                     <button class="col-2 btn btn-secondary" id="boutonCopie">Copier le texte</button>
                 </div>
-            <?php } ?>
+            <?php } ?> 
         </div>
         <div class="col-6"></div>
     </div>
