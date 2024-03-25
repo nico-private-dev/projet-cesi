@@ -14,7 +14,7 @@ function getUsers(){
 function login($login, $pass)
 {
     $req = "SELECT id, email, `password` 
-        FROM `user` WHERE 
+        FROM `users` WHERE 
         email = :login AND `password` = :pass;";
 
     $data = [
@@ -44,9 +44,9 @@ function login($login, $pass)
 function getUserById($id)
 {
     $req = "SELECT 
-        id, nickname, email, profile_pic
+        id, lastname, firstname, email, is_admin
     FROM 
-        user
+        users
     WHERE
         id=:id
     ;";

@@ -10,15 +10,13 @@ if(isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
 
     if($user_id) {
         $user = getUserById($user_id);
-        $_SESSION['user']['nickname'] = $user['nickname'];
-        addFlash("success", "Bon retour par minou (😺) " . $_SESSION['user']['nickname']);
+        $_SESSION['user']['firstname'] = $user['firstname'];
+        addFlash("success", "Bon retour par minou (😺) " . $_SESSION['user']['firstname']);
         header("location:?page=home");
     } else {
         // user = 0
         // donc message compte inexistant
         addFlash("danger", "Erreur, utilisateur inconnu");
         header("location:?page=login");
-    }
-
-    
+    }  
 }

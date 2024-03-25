@@ -5,6 +5,7 @@ session_start();
 require_once "./view/_parts/header.php";
 require_once "./Database.php";
 require_once "./libs/cleanSTR.php";
+require_once "./libs/tools.php";
 
 
 require_once "./controller/shortController.php";
@@ -33,6 +34,17 @@ switch ($page) {
     case 'action-add-post':
         require_once "./view/actions/add_post.php";
         break;
+
+    case 'login':
+        require_once "./view/login.php";
+        break;
+
+    case 'action-login':
+        require_once "./view/actions/login.php";
+        break;
+    case 'action-logout':
+        require_once "./view/actions/logout.php";
+        break;
     case 'admin':
         require_once "./view/BO/bo_qr.php";
         break;
@@ -44,10 +56,10 @@ switch ($page) {
         require_once "./view/_parts/create_account.php";
         break;
     case 'url':
-        
+
         $url = getUrlByShortUrl($_GET['code']);
         var_dump($url);
-        header('location:'. $url['url_full']);
+        header('location:' . $url['url_full']);
         require_once "./view/url.php";
         break;
 
