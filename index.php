@@ -12,7 +12,6 @@ require_once "./controller/shortController.php";
 require_once "./controller/UserController.php";
 
 
-
 $page = "home";
 if (isset ($_GET['page'])) {
     $page = $_GET['page'];
@@ -36,10 +35,25 @@ switch ($page) {
         $users = getUsers();
         require_once "./view/BO/bo_qr_users.php";
         break;
+    case 'bo_url':
+        $bo_urls = getUrls();
+        // $user_id = getUrlsByUserID($_SESSION['user_id']);
+        require_once "./view/BO/bo_url.php";
+        break;
+    case 'bo_url_admin':
+        $bo_urls = getUrls();
+        // $user_id = getUrlsByUserID($_SESSION['user_id']);
+        require_once "./view/BO/bo_admin_url.php";
+        break;
 
     case 'delete_user':
         delUser($_POST['user_id']);
         header('location:?page=admin');
+        // require_once "./view/delete_user.php";
+        break;
+    case 'delete_url':
+        delUrl($_POST['url_id']);
+        header('location:?page=bo_url');
         // require_once "./view/delete_user.php";
         break;
     case 'promote_admin':
@@ -53,6 +67,9 @@ switch ($page) {
 
     case 'action-add-post':
         require_once "./view/actions/add_post.php";
+        break;
+    case 'action-create_account':
+        require_once "./view/actions/create_account.php";
         break;
 
     case 'action-login':

@@ -93,3 +93,24 @@ function updateUser($user_id)
     // Appel de la fonction databaseWrite pour exécuter la mise à jour
     databaseWrite($req, $data);
 }
+
+function addUrls($user_id, $lastname, $firstname, $email, $password)
+{
+
+    $date = new DateTime();
+
+    $req = "INSERT INTO urls (user_id, lastname, firstname , email, `password`, created_at) VALUES (:user_id, :url_full, :url_short, :limit_date, '" . $date->format("Y-m-d h:i:s") . "');";
+
+    $data = [
+        'user_id' => $user_id,
+        'url_full' => $lastname,
+        'url_short' => $firstname,
+        'limit_date' => $email,
+        'password' => $password,
+
+    ];
+
+    databaseWrite($req, $data);
+
+
+}

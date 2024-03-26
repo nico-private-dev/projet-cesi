@@ -22,7 +22,7 @@ function getUrls()
 {
 
     $req = "SELECT 
-                user_id, url_short,url_full
+                *
             FROM 
                 urls;";
     $res = databaseRead($req);
@@ -32,23 +32,25 @@ function getUrls()
 
 }
 
-function getUrlsByID($id)
+
+function getUrlsByUserID($user_id)
 {
 
-    $req = "SELECT 
-                url_short,url_full
-            FROM 
-                urls;
+    $req = "SELECT
+                *
+            FROM
+                urls
             WHERE
-                url_short=:url_short";
+                user_id = :user_id ;";
+
     $data = [
-        'url_short' => $id
+
+        "user_id"=> $user_id,
     ];
-    $res = databaseRead($req, $data, true);
 
-    return $res;
+    $res = databaseRead($req, $data, false);
 
-
+var_dump($res);
 }
 
 function getUrlByShortUrl($shortUrl)
@@ -60,12 +62,12 @@ FROM
 WHERE
     url_short=:url_short";
 
-$data = [
-    'url_short' => $shortUrl
-];
-$res = databaseRead($req, $data, true);
+    $data = [
+        'url_short' => $shortUrl
+    ];
+    $res = databaseRead($req, $data, true);
 
-return $res;
+    return $res;
 
 }
 
@@ -101,3 +103,19 @@ function addUrls($user_id, $url_full, $url_short, $limit_date)
 
 // }
 
+function delUrl($url_id)
+{
+
+
+    $req = "DELETE FROM urls WHERE id = :id ";
+
+    $data = [
+        'id' => $url_id,
+        
+
+    ];
+
+    databaseWrite($req, $data);
+
+
+}

@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">QrFim</a>
+            <a class="navbar-brand" href="?page=home">QrFim</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,6 +22,20 @@
                         <a class="nav-link active" href="#">à propos
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="?page=bo_url">Mes URLS
+                        </a>
+                    </li>
+                    <?php
+                    // var_dump($_SESSION);
+                    // if ($_SESSION['user']['is_admin'] == 1) {    ?>
+                        
+                   
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" href="#">Panel Admin
+                        </a>
+                    </li> -->
+                    <?php // } ?>
                 </ul>
                 <div class="d-flex container-btn-account">
                     <?php if (isset($_SESSION['user'])) { ?>
