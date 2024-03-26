@@ -50,3 +50,4 @@ function databaseConnectionClose($pdo)
 
     $pdo = null;
 }
+

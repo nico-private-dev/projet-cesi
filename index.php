@@ -14,14 +14,14 @@ require_once "./controller/UserController.php";
 
 
 $page = "home";
-if (isset($_GET['page'])) {
+if (isset ($_GET['page'])) {
     $page = $_GET['page'];
 }
 
 switch ($page) {
     case 'home':
         $users = getUsers();
-        if (isset($_GET['code'])) {
+        if (isset ($_GET['code'])) {
             $url = getUrlByShortUrl($_GET['code']);
         }
         require_once "./view/home.php";
@@ -33,9 +33,20 @@ switch ($page) {
         break;
 
     case 'admin':
-        require_once "./view/BO/bo_qr.php";
+        $users = getUsers();
+        require_once "./view/BO/bo_qr_users.php";
         break;
 
+    case 'delete_user':
+        delUser($_POST['user_id']);
+        header('location:?page=admin');
+        // require_once "./view/delete_user.php";
+        break;
+    case 'promote_admin':
+        updateUser($_POST['user_id']);
+        header('location:?page=admin');
+        // require_once "./view/delete_user.php";
+        break;
     case 'login':
         require_once "./view/login.php";
         break;

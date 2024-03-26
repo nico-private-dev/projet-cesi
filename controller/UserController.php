@@ -3,7 +3,7 @@
 function getUsers(){
 
     $req = "SELECT 
-                id, lastname, firstname, email
+                id, lastname, firstname, email, is_admin
             FROM 
                 users;";
     $res = databaseRead($req);
@@ -56,4 +56,40 @@ function getUserById($id)
     $res = databaseRead($req, $data, true);
 
     return $res;
+}
+
+
+
+function delUser($user_id)
+{
+
+
+    $req = "DELETE FROM users WHERE id = :id ";
+
+    $data = [
+        'id' => $user_id,
+        
+
+    ];
+
+    databaseWrite($req, $data);
+
+
+}
+
+
+
+function updateUser($user_id)
+{
+    // Préparation de la requête SQL pour mettre à jour le statut de l'utilisateur
+    $req = "UPDATE users SET is_admin = :is_admin WHERE id = :id";
+
+    // Définition des données pour la requête
+    $data = [
+        'id' => $user_id,   
+        'is_admin' => '1', // Supposons que 'inactive' est la nouvelle valeur souhaitée
+    ];
+
+    // Appel de la fonction databaseWrite pour exécuter la mise à jour
+    databaseWrite($req, $data);
 }
