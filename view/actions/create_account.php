@@ -1,15 +1,12 @@
 <?php
-if (isset($_POST['url_full']) && isset($_POST ['user_id'])) {
+if (isset($_POST['email']) && isset($_POST ['password'])) {
     
-    $url_full =cleanStr($_POST ['url_full']);
-    $user_id =cleanStr($_POST ['user_id']);
-    $url_short = shortenUrl($url_full);
-    $limit_date = cleanStr($_POST ['limit_date']);
-    if (!$limit_date) {
-        $limit_date = null;
-    }
-    addUrls($user_id, $url_full, $url_short, $limit_date);
-    header("location:?page=home&code=".$url_short);
+    $lastname =cleanStr($_POST ['lastname']);
+    $firstname =cleanStr($_POST ['firstname']);
+    $email = $_POST ['email'];
+    $password = $_POST ['password'];
+    addUser($lastname, $firstname, $email, $password);
+    header("location:?page=login");
 }else {
     // var_dump($url_full);
 }

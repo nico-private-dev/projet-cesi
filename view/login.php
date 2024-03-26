@@ -1,7 +1,7 @@
 <h2>Login</h2>
 
 <form action="?page=action-login" method="post">
-
+    <input type="hidden" name="is_admin">
     <label for="login" class="form-label mt-4">Adresse courriel</label>
     <input type="email" class="form-control" name="login" id="login" required>
     

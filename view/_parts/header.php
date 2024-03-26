@@ -27,15 +27,15 @@
                         </a>
                     </li>
                     <?php
-                    // var_dump($_SESSION);
-                    // if ($_SESSION['user']['is_admin'] == 1) {    ?>
+                     var_dump($_SESSION);
+                     if ($_SESSION['user']['is_admin'] == 1) {    ?>
                         
                    
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link active" href="#">Panel Admin
                         </a>
-                    </li> -->
-                    <?php // } ?>
+                    </li>
+                    <?php  } ?>
                 </ul>
                 <div class="d-flex container-btn-account">
                     <?php if (isset($_SESSION['user'])) { ?>
@@ -47,7 +47,7 @@
 
                         <!-- Deconnecter -->
                         <a href="?page=login"><button class="btn-account btn-login">Se connecter</button></a>
-                        <a href="?page=register"><button class="btn-account btn-signin text-light">Créer un compte</button></a>
+                        <a href="?page=create_account"><button class="btn-account btn-signin text-light">Créer un compte</button></a>
                     <?php } ?>
                 </div>
             </div>

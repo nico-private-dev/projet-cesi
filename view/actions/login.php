@@ -5,8 +5,9 @@ if(isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
 
     $login = cleanStr($_POST['login']);
     $password = cleanStr($_POST['password']);
+    
 
-    $user_id = login($login, $password);
+    $user_id = login($login, $password, );
 
     if($user_id) {
         $user = getUserById($user_id);

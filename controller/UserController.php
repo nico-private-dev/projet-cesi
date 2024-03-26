@@ -11,15 +11,16 @@ function getUsers(){
     return $res;
 }
 
-function login($login, $pass)
+function login($login, $pass,$is_admin)
 {
-    $req = "SELECT id, email, `password` 
+    $req = "SELECT id, email, `password`, is_admin 
         FROM `users` WHERE 
-        email = :login AND `password` = :pass;";
+        email = :login , `password` = :pass , is_admin = :is_admin ;";
 
     $data = [
         "login" => $login,
-        "pass" => $pass
+        "pass" => $pass,
+        "is_admin" => $is_admin
     ];
 
     $res = databaseRead($req, $data, true);
@@ -94,18 +95,17 @@ function updateUser($user_id)
     databaseWrite($req, $data);
 }
 
-function addUrls($user_id, $lastname, $firstname, $email, $password)
+function addUser($lastname, $firstname, $email, $password)
 {
 
     $date = new DateTime();
 
-    $req = "INSERT INTO urls (user_id, lastname, firstname , email, `password`, created_at) VALUES (:user_id, :url_full, :url_short, :limit_date, '" . $date->format("Y-m-d h:i:s") . "');";
+    $req = "INSERT INTO users (lastname, firstname , email, password, created_at) VALUES (:lastname, :firstname , :email, :password, '" . $date->format("Y-m-d h:i:s") . "');";
 
     $data = [
-        'user_id' => $user_id,
-        'url_full' => $lastname,
-        'url_short' => $firstname,
-        'limit_date' => $email,
+        'lastname' => $lastname,
+        'firstname' => $firstname,
+        'email' => $email,
         'password' => $password,
 
     ];

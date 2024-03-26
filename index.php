@@ -30,6 +30,9 @@ switch ($page) {
     case 'create_account':
         require_once "./view/_parts/create_account.php";
         break;
+    case 'action_create_account':
+        require_once "./view/actions/create_account.php";
+        break;
 
     case 'admin':
         $users = getUsers();
