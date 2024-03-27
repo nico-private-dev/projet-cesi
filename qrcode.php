@@ -21,10 +21,10 @@ function getQRcode($url, $name){
     // Create QR code
     $qrCode = QrCode::create($url)
         ->setEncoding(new Encoding('UTF-8'))
-        ->setErrorCorrectionLevel(ErrorCorrectionLevel::Low)
+        // ->setErrorCorrectionLevel(ErrorCorrectionLevel::Low)
         ->setSize(300)
         ->setMargin(10)
-        ->setRoundBlockSizeMode(RoundBlockSizeMode::Margin)
+        // ->setRoundBlockSizeMode(RoundBlockSizeMode::Margin)
         ->setForegroundColor(new Color(0, 0, 0))
         ->setBackgroundColor(new Color(255, 255, 255));
 

@@ -50,7 +50,7 @@
                     <?php echo $url['url_full']; ?>
                 </td>
                 <td>
-                    <?php echo 'http://qrfim.xyz/?page=url&&code=' . $url['url_short']; ?>
+                    <?php echo '/?page=url&&code=' . $url['url_short']; ?>
                 </td>
                 <td>
                     <?php echo $url['created_at']; ?>

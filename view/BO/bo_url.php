@@ -25,8 +25,9 @@
             <th>Longue URL</th>
             <th>URL Raccourcie</th>
             <th>Date de Création</th>
-            <th>Date d'Expiration</th>
             <th>QR Code</th>
+            <th>Date d'Expiration</th>
+            
             <th>Action</th>
 
         </tr>
@@ -51,7 +52,7 @@
                         <?php echo $url['url_full']; ?>
                     </td>
                     <td>
-                        <?php echo 'http://qrfim.xyz/?page=url&&code=' . $url['url_short']; ?>
+                        <?php echo '/?page=url&&code=' . $url['url_short']; ?>
                     </td>
                     <td>
                         <?php echo $url['created_at']; ?>
