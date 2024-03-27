@@ -15,17 +15,18 @@
     </h2>
 
 
-   
+
 
     <!-- Liste des utilisateurs -->
     <h3>Liste de vos URLS</h3>
     <table>
         <tr>
-            <th>ID</th>
+            <th>Nom</th>
             <th>Longue URL</th>
             <th>URL Raccourcie</th>
             <th>Date de Création</th>
             <th>Date d'Expiration</th>
+            <th>QR Code</th>
             <th>Action</th>
 
         </tr>
@@ -40,7 +41,11 @@
                 ?>
                 <tr>
                     <td>
-                        <?php echo $url['id']; ?>
+                    <?php if (isset ($url['url_short'])) {
+                            $id = getIdFromShortUrl($url['url_short']);
+                            $nameRes = getNameById($id['id']);
+                            echo $nameRes['name'];
+                        } ?>
                     </td>
                     <td>
                         <?php echo $url['url_full']; ?>
@@ -52,6 +57,14 @@
                         <?php echo $url['created_at']; ?>
                     </td>
                     <td>
+                        <?php if (isset ($url['url_short'])) {
+                            $id = getIdFromShortUrl($url['url_short']);
+                            $nameRes = getNameById($id['id']);
+                            echo '<a href="../public/img/qrcode_generate/' . $nameRes['name'] . '.png"><img src="../public/img/qrcode_generate/' . $nameRes['name'] . '.png" alt="QR Code" class="w-50"></a>';
+                        } ?>
+
+                    </td>
+                    <td>
                         <?php if ($url['limit_date'] === null) {
                             echo 'Lien infini';
                         } else {
@@ -61,13 +74,13 @@
                         ?>
                     </td>
                     <td>
-                    <form action="?page=delete_url" method="POST">
-                        <input type="hidden" name="url_id" value="<?php echo $url['id']; ?>">
-                        <input type="submit" class="delete" value="Suppression"
-                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette URL ?');">
-                    </form>
-                    
-                </td> 
+                        <form action="?page=delete_url" method="POST">
+                            <input type="hidden" name="url_id" value="<?php echo $url['id']; ?>">
+                            <input type="submit" class="delete" value="Suppression"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette URL ?');">
+                        </form>
+
+                    </td>
 
                 </tr>
             <?php }

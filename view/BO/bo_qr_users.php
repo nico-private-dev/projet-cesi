@@ -58,7 +58,7 @@
                     <form action="?page=promote_admin" method="POST">
                         <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
                         <input type="submit" class=" btn btn-success" value="Promouvoir Admin"
-                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce compte ?');">
+                            onclick="return confirm('Êtes-vous sûr de vouloir promouvoir ce compte ?');">
                     </form>
                 </td>
 

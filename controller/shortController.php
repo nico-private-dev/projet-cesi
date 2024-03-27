@@ -45,12 +45,12 @@ function getUrlsByUserID($user_id)
 
     $data = [
 
-        "user_id"=> $user_id,
+        "user_id" => $user_id,
     ];
 
     $res = databaseRead($req, $data, false);
 
-var_dump($res);
+    var_dump($res);
 }
 
 function getUrlByShortUrl($shortUrl)
@@ -107,11 +107,14 @@ function delUrl($url_id)
 {
 
 
-    $req = "DELETE FROM urls WHERE id = :id ";
+    $req = "DELETE FROM qr_codes WHERE url_id= :url_id ;
+    DELETE FROM urls WHERE id = :id ;
+    ";
 
     $data = [
         'id' => $url_id,
-        
+        'url_id' => $url_id,
+
 
     ];
 
@@ -120,18 +123,20 @@ function delUrl($url_id)
 
 }
 
-function getIdFromShortUrl($shortUrl) {
+
+function getIdFromShortUrl($shortUrl)
+{
     // La requête pour chercher l'ID basé sur le short_url
     $req = "SELECT id FROM urls WHERE url_short = :short_url";
-    
+
     // Préparation des données à passer à la requête
     $data = [':short_url' => $shortUrl];
-    
+
     // Exécution de la requête. On s'attend à un seul résultat, donc $isUnique = true.
     $res = databaseRead($req, $data, true);
-    
+
     // Si un résultat est trouvé, retourne l'ID, sinon retourne null
-    
+
     return $res;
-    
+
 }
