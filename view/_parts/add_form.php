@@ -7,12 +7,12 @@
 
                 <div class="row d-flex justify-content-center">
                     <label for="limit_date">Veuillez saisir la date d'expiration :</label>
-                    <input class="col-6 my-4" type="date" name="limit_date" id="">
+                    <input class="col-6 mb-4 form-control col-11" type="date" name="limit_date" id="">
                     <label for="name">Veuillez saisir le nom de votre url :</label>
+                    <input class="col-11  mb-4 form-control" type="text" name="name" id="" placeholder="Le nom de votre URL">
+                    <label for="name">Veuillez saisir l'url à raccourcir :</label>
 
-                    <input type="text" name="name" id="">
-
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 ">
                         <input type="text" class="form-control" placeholder="Votre lien a raccourcir"
                             aria-label="Votre lien a raccourcir" aria-describedby="button-addon2" name="url_full"
                             id="url-full">

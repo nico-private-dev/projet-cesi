@@ -29,30 +29,37 @@
                         </a>
                     </li>
                     <?php
-                    // var_dump($_SESSION);
-                    // if ($_SESSION['user']['is_admin'] == 1) {    ?>
+                    // var_dump($_SESSION['user']['is_admin']);
+                     if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1) {    ?>
                         
                    
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#">Panel Admin
+                    <li class="nav-item">
+                        <a class="nav-link active" href="?page=admin">Panel Admin
                         </a>
-                    </li> -->
-                    <?php // } ?>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="?page=bo_url_admin">Panel Gestion URL
+                        </a>
+                    </li>
+                    <?php  } ?>
                 </ul>
                 <div class="d-flex container-btn-account">
                     <?php if (isset ($_SESSION['user'])) { ?>
                         <!-- Connecter -->
-                        <span>
-                            <?= $_SESSION['user']['firstname'] ?>
-                        </span>
-                        <a href="?page=action-logout"><button class="btn btn-outline-secondary text-light">Se
-                                déconnecter</button></a>
+                        <div class="d-flex align-items-center">
+                            <span class="mx-3 fw-bold text-light">
+                              Bonjour,  <?= $_SESSION['user']['firstname'] ?>
+                            </span>
+                            <a href="?page=action-logout"><button class="btn btn-secondary text-light">Se
+                                    déconnecter</button></a>
+                        </div>
 
                     <?php } else { ?>
 
                         <!-- Deconnecter -->
                         <a href="?page=login"><button class="btn-account btn-login">Se connecter</button></a>
-                        <a href="?page=register"><button class="btn-account btn-signin text-light">Créer un compte</button></a>
+                        <a href="?page=register"><button class="btn-account btn-signin text-light">Créer un
+                                compte</button></a>
                     <?php } ?>
                 </div>
             </div>
