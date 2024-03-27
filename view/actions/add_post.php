@@ -6,7 +6,7 @@ if (isset($_POST['url_full']) && isset($_POST ['user_id'])) {
     $url_short = shortenUrl($url_full);
     $limit_date = cleanStr($_POST ['limit_date']);
     $name = $_POST['name'];
-    $url_qr = 'http://qrfim.xyz/?page=url&code='.$url_short;
+    $url_qr = '/?page=url&code='.$url_short;
 
     if (!$limit_date) {
         $limit_date = null;
