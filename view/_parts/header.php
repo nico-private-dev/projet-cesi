@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">à propos
+                        <a class="nav-link active" href="?page=a-propos">à propos
                         </a>
                     </li>
                     <li class="nav-item">
@@ -58,7 +58,7 @@
 
                         <!-- Deconnecter -->
                         <a href="?page=login"><button class="btn-account btn-login">Se connecter</button></a>
-                        <a href="?page=register"><button class="btn-account btn-signin text-light">Créer un
+                        <a href="?page=create_account"><button class="btn-account btn-signin text-light">Créer un
                                 compte</button></a>
                     <?php } ?>
                 </div>

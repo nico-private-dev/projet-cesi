@@ -15,20 +15,22 @@ require_once "./qrcode.php";
 
 
 $page = "home";
-if (isset ($_GET['page'])) {
+if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 
 switch ($page) {
     case 'home':
         $users = getUsers();
-        if (isset ($_GET['code'])) {
+        if (isset($_GET['code'])) {
             $url = getUrlByShortUrl($_GET['code']);
         }
         require_once "./view/home.php";
 
         break;
-
+    case 'a-propos':
+        require_once "./view/a-propos.php";
+        break;
     case 'create_account':
         require_once "./view/_parts/create_account.php";
         break;
