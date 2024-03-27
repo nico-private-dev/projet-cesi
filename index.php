@@ -1,15 +1,17 @@
 <?php
 
 session_start();
-
+require_once "./libs/tools.php";
 require_once "./view/_parts/header.php";
 require_once "./Database.php";
 require_once "./libs/cleanSTR.php";
-require_once "./libs/tools.php";
+
 
 
 require_once "./controller/shortController.php";
 require_once "./controller/UserController.php";
+require_once "./controller/qrcodeController.php";
+require_once "./qrcode.php";
 
 
 $page = "home";
@@ -29,6 +31,9 @@ switch ($page) {
 
     case 'create_account':
         require_once "./view/_parts/create_account.php";
+        break;
+    case 'action_create_account':
+        require_once "./view/actions/create_account.php";
         break;
 
     case 'admin':
