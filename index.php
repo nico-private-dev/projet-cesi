@@ -1,12 +1,11 @@
 <?php
 
 session_start();
+
 require_once "./libs/tools.php";
 require_once "./view/_parts/header.php";
 require_once "./Database.php";
 require_once "./libs/cleanSTR.php";
-
-
 
 require_once "./controller/shortController.php";
 require_once "./controller/UserController.php";
@@ -20,6 +19,14 @@ if (isset($_GET['page'])) {
 }
 
 switch ($page) {
+        /*
+██╗   ██╗██╗███████╗██╗    ██╗███████╗
+██║   ██║██║██╔════╝██║    ██║██╔════╝
+██║   ██║██║█████╗  ██║ █╗ ██║███████╗
+╚██╗ ██╔╝██║██╔══╝  ██║███╗██║╚════██║
+ ╚████╔╝ ██║███████╗╚███╔███╔╝███████║
+  ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚══════╝
+    */
     case 'home':
         $users = getUsers();
         if (isset($_GET['code'])) {
@@ -33,9 +40,6 @@ switch ($page) {
         break;
     case 'create_account':
         require_once "./view/_parts/create_account.php";
-        break;
-    case 'action_create_account':
-        require_once "./view/actions/create_account.php";
         break;
 
     case 'admin':
@@ -72,6 +76,27 @@ switch ($page) {
         require_once "./view/login.php";
         break;
 
+
+    case 'qrcode':
+        require_once "./controller/qrcodeController.php";
+        break;
+
+    case 'url':
+
+        $url = getUrlByShortUrl($_GET['code']);
+        var_dump($url);
+        header('location:' . $url['url_full']);
+        require_once "./view/url.php";
+        break;
+
+        /* 
+ █████╗  ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
+██╔══██╗██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+███████║██║        ██║   ██║██║   ██║██╔██╗ ██║███████╗
+██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║
+██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
+╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+    */
     case 'action-add-post':
         require_once "./view/actions/add_post.php";
         break;
@@ -86,18 +111,11 @@ switch ($page) {
     case 'action-logout':
         require_once "./view/actions/logout.php";
         break;
-
-    case 'qrcode':
-        require_once "./controller/qrcodeController.php";
+    case 'action_create_account':
+        require_once "./view/actions/create_account.php";
         break;
 
-    case 'url':
 
-        $url = getUrlByShortUrl($_GET['code']);
-        var_dump($url);
-        header('location:' . $url['url_full']);
-        require_once "./view/url.php";
-        break;
 
     default:
         http_response_code(404);

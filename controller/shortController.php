@@ -10,7 +10,7 @@ function shortenUrl($url)
     $shortUrl = $shortId;
 
     if (strlen($shortUrl) > 50) {
-
+        // FIXME not necessary
         return "Erreur: L'URL raccourcie dépasse 50 caractères.";
     }
 
@@ -25,10 +25,10 @@ function getUrls()
                 *
             FROM 
                 urls;";
+
     $res = databaseRead($req);
 
     return $res;
-
 
 }
 
@@ -44,13 +44,12 @@ function getUrlsByUserID($user_id)
                 user_id = :user_id ;";
 
     $data = [
-
         "user_id" => $user_id,
     ];
 
     $res = databaseRead($req, $data, false);
 
-    var_dump($res);
+    // var_dump($res);
 }
 
 function getUrlByShortUrl($shortUrl)
