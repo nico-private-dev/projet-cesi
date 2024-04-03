@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <title>QrFim</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.materia.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -50,7 +50,7 @@
                             <span class="mx-3 fw-bold text-light">
                               Bonjour,  <?= $_SESSION['user']['firstname'] ?>
                             </span>
-                            <a href="?page=action-logout"><button class="btn btn-secondary text-light">Se
+                            <a href="?page=action-logout"><button class="btn btn-secondary text-dark">Se
                                     déconnecter</button></a>
                         </div>
 

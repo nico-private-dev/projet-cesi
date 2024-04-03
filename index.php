@@ -33,19 +33,30 @@ switch ($page) {
             $url = getUrlByShortUrl($_GET['code']);
         }
         require_once "./view/home.php";
-
         break;
+
     case 'a-propos':
         require_once "./view/a-propos.php";
         break;
+
     case 'create_account':
         require_once "./view/_parts/create_account.php";
         break;
+
+        /* 
+ █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+        */
 
     case 'admin':
         $users = getUsers();
         require_once "./view/BO/bo_qr_users.php";
         break;
+
     case 'bo_url':
         $bo_urls = getUrls();
         // $user_id = getUrlsByUserID($_SESSION['user_id']);
