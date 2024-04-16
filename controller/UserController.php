@@ -18,7 +18,6 @@ function login($login, $pass)
     $data = [
         "login" => $login,
         "pass" => $pass,
-        
     ];
 
     $res = databaseRead($req, $data, true);

@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="d-grid gap-2 col-10">
                         <a class="btn btn-lg btn-primary" href="?page=url&code=<?= $url['url_short'] ?>"
-                            id="texteACopier">/?page=url&code=
+                            id="texteACopier"><?= $_SERVER['SERVER_NAME'] ?>/?page=url&code=
                             <?= $url['url_short'] ?>
                         </a>
 

@@ -50,7 +50,8 @@
                     <?php echo $url['url_full']; ?>
                 </td>
                 <td>
-                    <?php echo '/?page=url&&code=' . $url['url_short']; ?>
+                    <?php echo  $_SERVER['SERVER_NAME'] . '?page=url&code=' . $url['url_short']; ?>
+                    <!-- <?php echo '/?page=url&&code=' . $url['url_short']; ?> -->
                 </td>
                 <td>
                     <?php echo $url['created_at']; ?>
