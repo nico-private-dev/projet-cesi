@@ -59,7 +59,7 @@ switch ($page) {
         */
 
     case 'admin':
-        var_dump($_SESSION);
+        // var_dump($_SESSION);
         if (isset($_SESSION['user']) & $_SESSION['user']['is_admin']) {
             $users = getUsers();
             require_once "./view/BO/bo_qr_users.php";
@@ -94,7 +94,7 @@ switch ($page) {
         break;
 
     case 'promote_admin':
-        updateUser($_POST['user_id']);
+        updatePromoteUserToAdmin($_POST['user_id']);
         header('location:?page=admin');
         // require_once "./view/delete_user.php";
         break;
@@ -111,7 +111,7 @@ switch ($page) {
     case 'url':
 
         $url = getUrlByShortUrl($_GET['code']);
-        var_dump($url);
+        // var_dump($url);
         header('location:' . $url['url_full']);
         require_once "./view/url.php";
         break;

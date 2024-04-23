@@ -108,7 +108,7 @@ function delUser($user_id)
 
 
 
-function updateUser($user_id)
+function updatePromoteUserToAdmin($user_id)
 {
     $req = "UPDATE users SET is_admin = :is_admin WHERE id = :id";
     $data = [
