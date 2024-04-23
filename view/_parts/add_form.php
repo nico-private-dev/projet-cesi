@@ -27,7 +27,7 @@
             if (isset ($_GET['code'])) {
                 $url = getUrlByShortUrl($_GET['code']);
                 ?>
-                <span><strong>Voici votre lien raccourcie :</strong></span> <br>
+                <span><strong>Voici votre lien raccourci :</strong></span> <br>
                 <div class="row">
                     <div class="d-grid gap-2 col-10">
                         <a class="btn btn-lg btn-primary" href="?page=url&code=<?= $url['url_short'] ?>"

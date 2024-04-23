@@ -1,16 +1,22 @@
-<div class="bg-light py-5 footer">
+<div class="bg-light py-3 footer">
     <footer class="container">
         <div class="row d-flex justify-content-between">
             <div>
-                <h2>Réalisé par</h2>
-                <div class="d-flex">
+                <h3>Réalisé par</h3>
+                <div class="d-flex justify-content-evenly py-2">
                     <span>Paul Biret</span>
                     <span>Grégoire Fertre</span>
                     <span>Nicolas Forget</span>
+                    <span>Finalisation et retouche - Benoît MOTTIN</span>
+
                 </div>
             </div>
-            <div>
+            <hr>
+            <div class="d-flex justify-content-evenly ">
                 <span>ceci est un projet pédagogique</span>
+                <span>&copy; FIM CCI Formation 2024</span>
+                <span><a href="?page=cgu">Condition Général d'Utilisation</a></span>
+                <span><a href="?page=pdc">Politique de confidentialité</a></span>
             </div>
         </div>
     </footer>

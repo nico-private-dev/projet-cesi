@@ -13,7 +13,7 @@ function getUsers(){
 
 function login($login, $pass)
 {
-    $req = "SELECT id, email, `password` FROM `users` WHERE email = :login AND `password` = :pass;";
+    $req = "SELECT id, email, `password`, `is_admin` FROM `users` WHERE email = :login AND `password` = :pass;";
 
     $data = [
         "login" => $login,
@@ -83,6 +83,7 @@ function getUserById($id)
     ];
     $res = databaseRead($req, $data, true);
 
+    // var_dump($res);
     return $res;
 }
 

@@ -16,7 +16,7 @@ if (isset($_POST['url_full']) && isset($_POST['user_id'])) {
     addUrls($user_id, $url_full, $url_short, $limit_date);
     getQRcode($url_qr, $name);
     addQrCode($url_short, $name);
-    var_dump($url_qr);
+    // var_dump($url_qr);
     header("location:?page=home&code=" . $url_short);
 } else {
     // var_dump($url_full);
