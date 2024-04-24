@@ -36,3 +36,13 @@ function validateEmail(email) {
     let regex = /^[^@]+@(fim-online\.net|normandie\.cci\.fr)$/;
     return regex.test(email);
 }
+
+function dismissAlert(){
+    let alerts = document.querySelectorAll(".alert");
+
+    alerts.forEach(alert => {
+        setTimeout(()=>{
+            alert.style.display = "none";
+        }, 5000)
+    });
+}
