@@ -6,7 +6,6 @@ session_start();
 require_once "./libs/tools.php";
 require_once "./view/_parts/header.php";
 require_once "./Database.php";
-require_once "./libs/cleanSTR.php";
 
 require_once "./controller/shortController.php";
 require_once "./controller/UserController.php";
@@ -70,9 +69,15 @@ switch ($page) {
         break;
 
     case 'bo_url':
-        $bo_urls = getUrls();
-        // $user_id = getUrlsByUserID($_SESSION['user_id']);
-        require_once "./view/BO/bo_url.php";
+        if(checkUser()['is_connected']) {
+            $bo_urls = getUrls();
+            // $user_id = getUrlsByUserID($_SESSION['user_id']);
+            require_once "./view/BO/bo_url.php";
+        } else {
+            addFlash("warning", "Veuillez vous connecter");
+            header("location:?page=login");
+        }
+        
         break;
 
     case 'bo_url_admin':

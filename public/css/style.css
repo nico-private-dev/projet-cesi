@@ -107,3 +107,13 @@
     left: 0;
     right: 0;
   }
+
+  /*  -----------------------------------------------
+
+      -----------------------------------------------    */
+
+h1, h2 {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-decoration-color: var(--bs-info) !important;
+}

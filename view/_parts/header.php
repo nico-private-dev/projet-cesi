@@ -14,44 +14,46 @@
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="?page=home">QrFim</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
-                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="?page=a-propos">à propos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="?page=bo_url">Mes URLS
-                        </a>
-                    </li>
+                    <?php
+
+                    if (checkUser()['is_connected']) {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="?page=bo_url">Mes URLS
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
                     <?php
                     // var_dump($_SESSION['user']['is_admin']);
-                     if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1) {    ?>
-                        
-                   
-                    <li class="nav-item">
-                        <a class="nav-link active" href="?page=admin">Panel Admin
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="?page=bo_url_admin">Panel Gestion URL
-                        </a>
-                    </li>
+                    //  if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1) {    
+                    // var_dump(checkUser()['is_admin']);
+                    // var_dump($_SESSION);
+                    if (checkUser()['is_admin']) {    ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="?page=admin">Panel Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="?page=bo_url_admin">Panel Gestion URL</a>
+                        </li>
                     <?php  } ?>
                 </ul>
                 <div class="d-flex container-btn-account">
-                    <?php if (isset ($_SESSION['user'])) { ?>
+                    <?php if (checkUser()['is_connected']) { ?>
                         <!-- Connecter -->
                         <div class="d-flex align-items-center">
                             <span class="mx-3 fw-bold text-light">
-                              Bonjour,  <?= $_SESSION['user']['firstname'] ?>
+                                Bonjour, <?= $_SESSION['user']['firstname'] ?>
                             </span>
-                            <a href="?page=action-logout"><button class="btn btn-secondary text-dark">Se
-                                    déconnecter</button></a>
+                            <a href="?page=action-logout">
+                                <button class="btn btn-secondary text-dark">Se déconnecter</button>
+                            </a>
                         </div>
 
                     <?php } else { ?>
@@ -66,12 +68,12 @@
         </div>
     </nav>
     <?php
-    if (isset ($_SESSION['flashes']) && $_SESSION['flashes'] != null) {
+    if (isset($_SESSION['flashes']) && $_SESSION['flashes'] != null) {
 
 
         for ($i = 0; $i < count($_SESSION['flashes']); $i++) {
             echo
-                '
+            '
   <div class="alert alert-dismissible alert-' . $_SESSION['flashes'][$i]['type'] . '">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     

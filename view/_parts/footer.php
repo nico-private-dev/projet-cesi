@@ -1,4 +1,4 @@
-<div class="bg-light py-3 footer">
+<div class="bg-light py-3 mt-3 footer">
     <footer class="container">
         <div class="row d-flex justify-content-between">
             <div>
@@ -17,6 +17,7 @@
                 <span>&copy; FIM CCI Formation 2024</span>
                 <span><a href="?page=cgu">Condition Général d'Utilisation</a></span>
                 <span><a href="?page=pdc">Politique de confidentialité</a></span>
+                <span><a href="?page=a-propos">à propos</a></span>
             </div>
         </div>
     </footer>
@@ -27,33 +28,20 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let bouton = document.getElementById('boutonCopie');
-        bouton.addEventListener('click', function() {
-            let texte = document.getElementById('texteACopier').innerText;
-            let tempInput = document.createElement('input');
-            tempInput.style = 'position: absolute; left: -1000px; top: -1000px';
-            document.body.appendChild(tempInput);
-            tempInput.value = texte;
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            alert('Texte copié : ' + texte);
-        });
-    });
-</script>
 
+<script src="/public/js/tools.js"></script>
 <script>
+
+    /*
+      Check the input
+      Check here if the password is 10 char long
+
+     */
     document.addEventListener('DOMContentLoaded', function() {
         // Sélectionnez votre champ de saisie d'email par son ID ou sa classe
         let emailInput = document.getElementById('email');
 
-        // Fonction pour vérifier si l'email est valide
-        function validateEmail(email) {
-            let regex = /^[^@]+@(fim-online\.net|normandie\.cci\.fr)$/;
-            return regex.test(email);
-        }
+
 
         // Attachez un écouteur d'événements pour valider l'email
         emailInput.addEventListener('input', function() {

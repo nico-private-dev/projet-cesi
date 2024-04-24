@@ -11,10 +11,10 @@ if (isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
         try {
             $user = getUserById($user_id);
 
-            
+
             $_SESSION['user']['firstname'] = $user['firstname'];
             $_SESSION['user']['id'] = $user['id'];
-            $_SESSION['user']['is_admin'] = $user['is_admin']?true:false;
+            $_SESSION['user']['is_admin'] = $user['is_admin'] ? true : false;
 
             // var_dump($_SESSION);
             addFlash("success", "Bonjour " . $_SESSION['user']['firstname']);
@@ -23,10 +23,8 @@ if (isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
             addFlash("danger", "Erreur, " . $th->getMessage());
             header("location:?page=login");
         }
-
     } else {
         addFlash("danger", "Erreur, vérifiez votre saisie");
-        header("location:?page=login");    
+        header("location:?page=login");
     }
-
 }
