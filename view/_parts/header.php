@@ -7,6 +7,7 @@
     <title>QrFim</title>
     <link rel="stylesheet" href="/public/css/bootstrap.materia.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/img/favicon.png" type="image/x-icon">
     <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 
@@ -20,7 +21,6 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <?php
-
                     if (checkUser()['is_connected']) {
                     ?>
                         <li class="nav-item">
@@ -69,7 +69,6 @@
     </nav>
     <?php
     if (isset($_SESSION['flashes']) && $_SESSION['flashes'] != null) {
-
 
         for ($i = 0; $i < count($_SESSION['flashes']); $i++) {
             echo
