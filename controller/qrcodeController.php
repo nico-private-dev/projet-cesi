@@ -1,35 +1,32 @@
 <?php
 
-function getUrlIdJoinQrCode($id) {
+function getUrlIdJoinQrCode($id)
+{
 
-    $req = "SELECT * FROM `urls` INNER JOIN `qr_codes` ON urls.id = qr_codes.url_id WHERE urls.id = ".$id.";";
-
+    $req = "SELECT * FROM `urls` INNER JOIN `qr_codes` ON urls.id = qr_codes.url_id WHERE urls.id = " . $id . ";";
     databaseRead($req);
 }
 
-function addQrCode($url,$name)
+function addQrCode($url, $name)
 {
     $urlId = getIdFromShortUrl($url); // Suppose que cette fonction retourne l'ID ou null si non trouvé
 
     // Si l'URL n'existe pas, insérez-la d'abord dans `urls` et obtenez le nouvel ID
- 
-
     $date = new DateTime();
 
-    $req = "INSERT INTO qr_codes (url_id, name, created_at) VALUES (:url_id,:name, '" . $date->format("Y-m-d h:i:s") . "');";
+    $req = "INSERT INTO qr_codes (url_id, name, created_at, updated_at) VALUES (:url_id,:name, :date, :date);";
 
     $data = [
-        'url_id' => $urlId['id'] ,
-        'name' => $name
-
+        'url_id' => $urlId['id'],
+        'name' => $name,
+        'date' => $date->format("Y-m-d h:i:s")
     ];
 
     databaseWrite($req, $data);
-
-
 }
 
-function getNameById($id) {
+function getNameById($id)
+{
     // La requête SQL pour récupérer le champ `name` à partir de l'ID. 
     // Assurez-vous de remplacer `table2` par le nom réel de votre table et `name` par le nom réel du champ que vous souhaitez récupérer.
     // Adaptez également `table1` et `table2` pour qu'elles correspondent à vos noms de tables réels et la condition de jointure selon vos besoins.

@@ -1,17 +1,20 @@
-<?php 
+<?php
 
-function addFlash($type, $message){
+function addFlash($type, $message)
+{
     $_SESSION['flashes'][] = [
-        "type" => $type, 
+        "type" => $type,
         "message" => $message
     ];
 }
 
-function remFlash(){
+function remFlash()
+{
     $_SESSION['flashes'] = [];
 };
 
-function cleanStr($str) {
+function cleanStr($str)
+{
     return trim(htmlspecialchars(addslashes(strip_tags($str))));
 }
 
@@ -21,22 +24,18 @@ function cleanStr($str) {
  */
 
 
-function checkUser(){
+function checkUser()
+{
 
-    $res = ['is_connected' => false, 'is_admin' => false];
+    $res = ['user_id' => $_SESSION['user']['id'], 'is_connected' => false, 'is_admin' => false];
 
-    if(isset($_SESSION['user'])){
+    if (isset($_SESSION['user'])) {
         $res['is_connected'] = true;
 
-        if($_SESSION['user']['is_admin']){
+        if ($_SESSION['user']['is_admin']) {
             $res['is_admin'] = true;
         }
-        
     }
 
-    
-    
-
     return $res;
-
 }

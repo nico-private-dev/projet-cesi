@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <!--
+    FIXME semeble pas utilser à supprimer je pense
+
+    -->
     <div class="container">
         <h2>Admin Panel - Niveau :
             <?php

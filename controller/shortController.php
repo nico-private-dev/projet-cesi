@@ -50,6 +50,7 @@ function getUrlsByUserID($user_id)
     $res = databaseRead($req, $data, false);
 
     // var_dump($res);
+    return $res;
 }
 
 function getUrlByShortUrl($shortUrl)
@@ -75,14 +76,14 @@ function addUrls($user_id, $url_full, $url_short, $limit_date)
 
     $date = new DateTime();
 
-    $req = "INSERT INTO urls (user_id, url_full, url_short,limit_date, created_at) VALUES (:user_id, :url_full, :url_short, :limit_date, '" . $date->format("Y-m-d h:i:s") . "');";
+    $req = "INSERT INTO urls (user_id, url_full, url_short,limit_date, created_at, updated_at) VALUES (:user_id, :url_full, :url_short, :limit_date, :date, :date);";
 
     $data = [
         'user_id' => $user_id,
         'url_full' => $url_full,
         'url_short' => $url_short,
         'limit_date' => $limit_date,
-
+        'date' => $date->format("Y-m-d h:i:s")
     ];
 
     databaseWrite($req, $data);

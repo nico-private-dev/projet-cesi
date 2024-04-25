@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/public/css/panel_admin.css">
+<!-- <link rel="stylesheet" href="/public/css/panel_admin.css"> -->
 
 
 <div class="container">

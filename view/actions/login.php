@@ -11,9 +11,9 @@ if (isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
         try {
             $user = getUserById($user_id);
 
-
-            $_SESSION['user']['firstname'] = $user['firstname'];
             $_SESSION['user']['id'] = $user['id'];
+            $_SESSION['user']['firstname'] = $user['firstname'];
+            $_SESSION['user']['email'] = $user['email'];
             $_SESSION['user']['is_admin'] = $user['is_admin'] ? true : false;
 
             // var_dump($_SESSION);
