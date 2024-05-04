@@ -15,7 +15,8 @@ use Endroid\QrCode\RoundBlockSizeMode;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Writer\ValidationException;
 
-function getQRcode($url, $name){
+function getQRcode($url, $name)
+{
     $writer = new PngWriter();
 
     // Create QR code
@@ -31,8 +32,7 @@ function getQRcode($url, $name){
     // Create generic logo
     $logo = Logo::create(__DIR__ . '/public/img/logo-qr-fim.png')
         ->setResizeToWidth(50)
-        ->setPunchoutBackground(true)
-    ;
+        ->setPunchoutBackground(true);
 
     // Create generic label
     $label = Label::create($name)
@@ -41,16 +41,25 @@ function getQRcode($url, $name){
     $result = $writer->write($qrCode, $logo, $label);
 
     // Validate the result
-// $writer->validateResult($result, 'Life is too short to be generating QR codes');
+    // create folder the first time
+    // if(mkdir(__DIR__ . '/public/img/qrcode_generate/' . $_SESSION['user']['email'])){
 
-    // header('Content-Type: ' . $result->getMimeType());
-    // $result->getMimeType();
-    // echo $result->getString();
+    // }
 
+    try {
+        // create folder the first time
+        if (!is_dir(__DIR__ . '/public/img/qrcode_generate/' . $_SESSION['user']['email'])) {
+            mkdir(__DIR__ . '/public/img/qrcode_generate/' . $_SESSION['user']['email']);
+        }
+        // $result->saveToFile(__DIR__ . '/public/img/qrcode_generate/'.$name.'.png');
+        $result->saveToFile(__DIR__ . '/public/img/qrcode_generate/' . $_SESSION['user']['email'] . "/" . $name . '.png');
+    } catch (\Throwable $th) {
+        //throw $th;
+
+        addFlash("warning", "Une erreur est survenue, voir le message ci-après :".$th->getMessage());
+    }
     // Save it to a file
-    $result->saveToFile(__DIR__ . '/public/img/qrcode_generate/'.$name.'.png');
 
     // Generate a data URI to include image data inline (i.e. inside an <img> tag)
     $dataUri = $result->getDataUri();
-
 }

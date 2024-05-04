@@ -27,7 +27,13 @@ function cleanStr($str)
 function checkUser()
 {
 
-    $res = ['user_id' => $_SESSION['user']['id'], 'is_connected' => false, 'is_admin' => false];
+    if(isset( $_SESSION['user'])){
+        $res = ['user_id' => $_SESSION['user']['id'], 'is_connected' => false, 'is_admin' => false];
+
+    } else {
+        $res = ['user_id' => null, 'is_connected' => false, 'is_admin' => false];
+
+    }
 
     if (isset($_SESSION['user'])) {
         $res['is_connected'] = true;

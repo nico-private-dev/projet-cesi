@@ -6,9 +6,11 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: #155724 !important;
 }
 
-table th, table td {
+table th,
+table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
@@ -33,13 +35,16 @@ table td {
 .demote {
     color: #fff;
     border: none;
-    padding: 3px 5px; /* Ajustez le rembourrage pour le style */
+    padding: 3px 5px;
+    /* Ajustez le rembourrage pour le style */
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
     margin: 3px;
-    width: 150px; /* Fixez la largeur des boutons */
-    text-align: center; /* Centre le texte dans le bouton */
+    width: 150px;
+    /* Fixez la largeur des boutons */
+    text-align: center;
+    /* Centre le texte dans le bouton */
 }
 
 .delete {
@@ -58,7 +63,7 @@ table td {
     background-color: #ff9933;
 }
 
-input[disabled]  {
+input[disabled] {
     cursor: not-allowed;
     background-color: slategrey;
 }
@@ -81,7 +86,8 @@ input[disabled]:hover {
 
 .container-button {
     text-align: center;
-    margin-top: 10px; /* Ajout d'une marge en haut du conteneur */
+    margin-top: 10px;
+    /* Ajout d'une marge en haut du conteneur */
 }
 
 .delete:hover {
@@ -109,25 +115,20 @@ input[disabled]:hover {
     margin-bottom: 10px;
 }
 
-
-
-
-
-
 .censured {
     color: darkred;
 }
 
 .recruteur {
-    color:forestgreen;
+    color: forestgreen;
 }
 
 .manager {
-    color:orangered;
+    color: orangered;
 }
 
 .admin {
-    color:darkred;
+    color: darkred;
 }
 
 /* Style du conteneur de navigation */
@@ -154,4 +155,3 @@ input[disabled]:hover {
     color: #fff;
     margin-right: 20px;
 }
-
