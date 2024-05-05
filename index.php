@@ -3,6 +3,8 @@
 session_start();
 // session_destroy();
 
+// var_dump($_SESSION);
+
 require_once "./libs/tools.php";
 require_once "./view/_parts/header.php";
 require_once "./Database.php";
@@ -12,12 +14,11 @@ require_once "./controller/UserController.php";
 require_once "./controller/qrcodeController.php";
 require_once "./qrcode.php";
 
-
 $page = "home";
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
-
+addLog("","");
 switch ($page) {
         /*
 ██╗   ██╗██╗███████╗██╗    ██╗███████╗
@@ -45,9 +46,9 @@ switch ($page) {
     case 'cgu':
         require_once "./view/cgu.php";
         break;
-        case 'pdc':
-            require_once "./view/pdc.php";
-            break;
+    case 'pdc':
+        require_once "./view/pdc.php";
+        break;
         /* 
  █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
 ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
@@ -58,7 +59,6 @@ switch ($page) {
         */
 
     case 'admin':
-        // var_dump($_SESSION);
         if (isset($_SESSION['user']) & $_SESSION['user']['is_admin']) {
             $users = getUsers();
             require_once "./view/BO/bo_qr_users.php";
@@ -69,15 +69,16 @@ switch ($page) {
         break;
 
     case 'bo_url':
-        if(checkUser()['is_connected']) {
-            $bo_urls = getUrls();
-            // $user_id = getUrlsByUserID($_SESSION['user_id']);
+        // show user personnal URL to manage
+        if (checkUser()['is_connected']) {
+            // $bo_urls = getUrls();
+            $bo_urls = getUrlsByUserID(checkUser()['user_id']);
             require_once "./view/BO/bo_url.php";
         } else {
             addFlash("warning", "Veuillez vous connecter");
             header("location:?page=login");
         }
-        
+
         break;
 
     case 'bo_url_admin':

@@ -4,17 +4,27 @@ function databaseConnect()
 {
     $server = "localhost";
     $login = "root";
+    // $login = "qrfim";
     $password = "";
+    // $password = "LDt/3sIazq1EPNyK";
+    
     $port = "3306";
-    $dbname = "short_url_qr_fim";
+    $dbname = "webd_2224_short_url";
+    // $dbname = "qrfim";
 
-    $pdo = new PDO("mysql:host=" . $server . ";port=" . $port . ";dbname=" . $dbname, $login, $password);
+    try {
+        $pdo = new PDO("mysql:host=" . $server . ";port=" . $port . ";dbname=" . $dbname, $login, $password);
 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $pdo->exec("set names utf8");
-
-    return $pdo;
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+        $pdo->exec("set names utf8");
+    
+        return $pdo;
+    } catch (\Throwable $th) {
+        //throw $th;
+        addLog("error", $th->getCode() . " : " . $th->getMessage());
+    }
+  
 }
 
 function databaseRead($req, $data = [], $isUnique = false)
@@ -38,10 +48,16 @@ function databaseRead($req, $data = [], $isUnique = false)
 function databaseWrite($req, $data)
 {
 
-    $pdo = databaseConnect();
-    $stmt = $pdo->prepare($req);
-
-    $stmt->execute($data);
+    try {
+        $pdo = databaseConnect();
+        $stmt = $pdo->prepare($req);
+    
+        $stmt->execute($data);
+    } catch (\Throwable $th) {
+        addFlash("danger", "Code erreur : " . $th->getCode() . " " . $th->getMessage());
+        addLog("error", $th->getMessage());
+    }
+    
     databaseConnectionClose($pdo);
 }
 
