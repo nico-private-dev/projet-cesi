@@ -35,8 +35,10 @@
                 <td>
                     <?php echo $url['url_full']; ?>
                 </td>
-                <td>
-                    <?php echo '/?page=url&&code=' . $url['url_short']; ?>
+                <td class="d-flex justify-content-between align-items-center">
+                    <!-- TODO add copy/paste -->
+                    <span><?php echo "https://".$_SERVER['SERVER_NAME'] . '/?page=url&&code=' . $url['url_short']; ?></span>
+                    <span><button class="btn btn-primary">📜</button></span>
                 </td>
                 <td>
                     <?php echo $url['created_at']; ?>

@@ -31,10 +31,6 @@
                     }
                     ?>
                     <?php
-                    // var_dump($_SESSION['user']['is_admin']);
-                    //  if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1) {    
-                    // var_dump(checkUser()['is_admin']);
-                    // var_dump($_SESSION);
                     if (checkUser()['is_admin']) {    ?>
                         <li class="nav-item">
                             <a class="nav-link active" href="?page=admin">Panel Admin</a>
