@@ -6,7 +6,6 @@
 <form action="?page=action-login" method="post">
     <div class="row d-flex justify-content-center">
         <div class="col-3">
-            <input type="hidden" name="is_admin">
             <label for="login" class="form-label mt-4">Adresse courriel</label>
             <input type="email" class="form-control" name="login" id="email" required>
 

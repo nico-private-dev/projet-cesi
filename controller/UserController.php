@@ -38,6 +38,35 @@ function login($login, $pass)
     return $user_id;
 }
 
+
+function login_with_hash($login)
+{
+    $req = "SELECT id, email, firstname, lastname,  `password`, `is_admin` FROM `users` WHERE email = :login";
+
+    $data = [
+        "login" => $login,
+        // "pass" => $pass,
+    ];
+
+    $res = databaseRead($req, $data, true);
+
+    // definition user_id = 0
+    $user_id = 0;
+
+    // si j'ai un resultat 
+    // j'ecrase la valeur 0 par l'id
+    if ($res) {
+        /*if (count($res) > 0) {
+            // alors exist
+            $user_id  = $res['id'];
+        }//*/
+    }
+
+    // resultat soit 0 soit l'id de l'utilisateur
+    return $res;
+}
+
+
 // function login($login, $pass, $is_admin)
 // {
 //     $req = "SELECT id, email, `password`, is_admin 

@@ -5,10 +5,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $lastname = cleanStr($_POST['lastname']);
     $firstname = cleanStr($_POST['firstname']);
     $email = cleanStr($_POST['email']);
+    
     $password = cleanStr($_POST['password']);
 
     if (strlen($email) > 0  && strlen($password) > 6) {
         try {
+            // encrypt password with bcrypt
+            $password = password_hash(cleanStr($_POST['password']),PASSWORD_DEFAULT);
             addUser($lastname, $firstname, $email, $password);
             addFlash("info", "Compte créé, veuillez vous connecter");
             header("location:?page=login");
